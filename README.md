@@ -1,10 +1,11 @@
 # TextAdventure
 
 Planned engine content:
--Look (done partially)
+-Look (done)
 -Move (done)
--Use
+-Use (done)
 -Take/Inventory (done)
+-Engine Branch
 
 Planned game content:
 -None ;P
