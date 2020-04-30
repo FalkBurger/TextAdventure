@@ -62,5 +62,24 @@ namespace Joe_Quest
 
             }
         }
+
+        public void Use(int room, string specdec)
+        {
+            Locations LocalObj = new Locations();
+
+            switch (room)
+            {
+                case 0:
+                    LocalObj.Outside("use", specdec);
+                    break;
+                case 1:
+                    LocalObj.Outside("use", specdec);
+                    break;
+                case 2:
+                    LocalObj.Outside("use", specdec);
+                    break;
+
+            }
+        }
     }
 }

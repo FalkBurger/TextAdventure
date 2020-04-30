@@ -9,18 +9,23 @@ namespace Joe_Quest
     {
         public string[] arrLocal = {"outside", "inside"};
         public string[] arrInventory;
+        public string[] arrUseList;
 
         public void Outside(string kind, string specdec)
         {
             bool taken = false;
             string line;
+            string checkLocal;
+            string checkObject;
+            string checkActive;
+            bool allowMove = true;
 
             if (kind == "look")
             {
                 switch (specdec)
                 {
                     case "Door":
-                        Console.WriteLine("\nThe door seems to be locked");
+                        Console.WriteLine("\nThe door seems to be operated by the lever");
                         break;
 
                     case "Jewel":
@@ -32,11 +37,11 @@ namespace Joe_Quest
                         break;
 
                     case "look":
-                        Console.WriteLine("\nYou stand before the castle. To the North is a wooden door and a jewel. Around you is a dense impassible forest.");
+                        Console.WriteLine("\nYou stand before the castle. To the North is a wooden door with a lever and a jewel. Around you is a dense impassible forest.");
                         break;
 
                     case "":
-                        Console.WriteLine("\nYou stand before the castle. To the North is a wooden door and a jewel. Around you is a dense impassible forest.");
+                        Console.WriteLine("\nYou stand before the castle. To the North is a wooden door with a lever and a jewel. Around you is a dense impassible forest.");
                         break;
 
                     default:
@@ -49,8 +54,47 @@ namespace Joe_Quest
                 switch (specdec)
                 {
                     case "North":
-                        Console.WriteLine("\nYou move North!");
-                        File.WriteAllText("RoomDetail.txt", "1");
+                        arrUseList = File.ReadAllLines("UseList.txt");
+
+                        for (int i = 0; i < arrUseList.Length; i++)
+                        {
+                            line = arrUseList[i];
+
+                            checkLocal = line.Replace(line.Substring(line.IndexOf("#")),"");
+                            line = line.Substring(line.IndexOf("#") + 1);
+
+                            checkObject = line.Replace(line.Substring(line.IndexOf("#")), "");
+                            line = line.Substring(line.IndexOf("#") + 1);
+
+                            checkActive = line;
+
+                            if (checkLocal == "Outside")
+                            {
+                                if (checkObject == "Lever")
+                                {
+                                    if (checkActive == "False")
+                                    {
+                                        allowMove = false;
+                                    }
+                                    else
+                                    {
+                                        allowMove = true;
+                                    }
+                                }
+                            }
+                        }
+
+                        if (allowMove)
+                        {
+                            Console.WriteLine("\nYou move North!");
+                            File.WriteAllText("RoomDetail.txt", "1");
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nThe door is locked!");
+                        }
+
+
                         break;
 
                     case "East":
@@ -99,6 +143,49 @@ namespace Joe_Quest
 
                     default:
                         Console.WriteLine("\nThat object does not exist.");
+                        break;
+                }
+            }
+
+            else if (kind == "use")
+            {
+                switch (specdec)
+                {
+                    case "Lever":
+                        arrUseList = File.ReadAllLines("UseList.txt");
+
+                        for (int i = 0; i < arrUseList.Length; i++)
+                        {
+                            line = arrUseList[i];
+
+                            checkLocal = line.Replace(line.Substring(line.IndexOf("#")), "");
+                            line = line.Substring(line.IndexOf("#") + 1);
+
+                            checkObject = line.Replace(line.Substring(line.IndexOf("#")), "");
+                            line = line.Substring(line.IndexOf("#") + 1);
+
+                            checkActive = line;
+
+                            if (checkLocal == "Outside")
+                            {
+                                if (checkObject == "Lever")
+                                {
+                                    checkActive = "True";
+                                    line = string.Concat(checkLocal, "#", checkObject, "#", checkActive);
+
+                                    arrUseList[i] = line;
+                                }
+                            }
+                            
+                        }
+
+                        File.WriteAllLines("UseList.txt", arrUseList);
+                        Console.WriteLine("\n You use the Lever and the Door opens!");
+                        
+                        break;
+
+                    default:
+                        Console.WriteLine("\n I do not know what you want to use.");
                         break;
                 }
             }

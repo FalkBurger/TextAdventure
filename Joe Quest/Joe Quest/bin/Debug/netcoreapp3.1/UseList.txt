@@ -1,0 +1,2 @@
+Location#Object#Used
+Outside#Lever#True
