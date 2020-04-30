@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\source\\repos\\Joe Quest\\Joe Quest\\Joe Quest.csproj": {}
+    "C:\\Users\\User\\Documents\\GitHub\\TextAdventure\\Joe Quest\\Joe Quest\\Joe Quest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\source\\repos\\Joe Quest\\Joe Quest\\Joe Quest.csproj": {
+    "C:\\Users\\User\\Documents\\GitHub\\TextAdventure\\Joe Quest\\Joe Quest\\Joe Quest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\Joe Quest\\Joe Quest\\Joe Quest.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\TextAdventure\\Joe Quest\\Joe Quest\\Joe Quest.csproj",
         "projectName": "Joe Quest",
-        "projectPath": "C:\\Users\\User\\source\\repos\\Joe Quest\\Joe Quest\\Joe Quest.csproj",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\TextAdventure\\Joe Quest\\Joe Quest\\Joe Quest.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\Joe Quest\\Joe Quest\\obj\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\TextAdventure\\Joe Quest\\Joe Quest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

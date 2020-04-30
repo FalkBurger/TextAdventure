@@ -26,21 +26,40 @@ namespace Joe_Quest
             }
         }
 
-        public void Move(int room = 0, string direction = "North")
+        public void Move(int room = 0, string specdec = "North")
         {
             Locations LocalObj = new Locations();
 
             switch (room)
             {
                 case 0:
-                    LocalObj.Outside("move", direction);
+                    LocalObj.Outside("move", specdec);
                     break;
                 case 1:
-                    LocalObj.Inside("move", direction);
+                    LocalObj.Inside("move", specdec);
                     break;
                 case 2:
-                    LocalObj.Garden("move", direction);
+                    LocalObj.Garden("move", specdec);
                     break;
+            }
+        }
+
+        public void Take(int room, string specdec)
+        {
+            Locations LocalObj = new Locations();
+
+            switch (room)
+            {
+                case 0:
+                    LocalObj.Outside("take", specdec);
+                    break;
+                case 1:
+                    LocalObj.Outside("take", specdec);
+                    break;
+                case 2:
+                    LocalObj.Outside("take", specdec);
+                    break;
+
             }
         }
     }
