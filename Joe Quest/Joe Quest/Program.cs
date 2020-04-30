@@ -47,9 +47,9 @@ namespace Joe_Quest
 
                 }
 
-                else if (input == "look")
+                else if (LikeOperator.LikeString(input, "look*", Microsoft.VisualBasic.CompareMethod.Binary))
                 {
-                    CommandObj.Look(Convert.ToInt32(File.ReadAllText("RoomDetail.txt")));
+                    CommandObj.Look(Convert.ToInt32(File.ReadAllText("RoomDetail.txt")), input.Substring(input.IndexOf(" ") + 1));
                 }
 
                 else if (LikeOperator.LikeString(input, "take*", Microsoft.VisualBasic.CompareMethod.Binary))

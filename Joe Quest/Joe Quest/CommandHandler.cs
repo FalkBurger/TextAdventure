@@ -7,7 +7,7 @@ namespace Joe_Quest
     class CommandHandler
     {
 
-        public void Look(int room = 0)
+        public void Look(int room = 0, string specdec = "default")
         {
             Program MainObj = new Program();
             Locations LocalObj = new Locations();
@@ -15,13 +15,13 @@ namespace Joe_Quest
             switch (room)
             {
                 case 0:
-                    LocalObj.Outside("look", "default");
+                    LocalObj.Outside("look", specdec);
                     break;
                 case 1:
-                    LocalObj.Inside("look", "default");
+                    LocalObj.Inside("look", specdec);
                     break;
                 case 2:
-                    LocalObj.Garden("look","default");
+                    LocalObj.Garden("look", specdec);
                     break;
             }
         }

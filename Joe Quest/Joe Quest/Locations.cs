@@ -17,7 +17,32 @@ namespace Joe_Quest
 
             if (kind == "look")
             {
-                Console.WriteLine("\nYou stand before the castle. To the North is a wooden door and a jewel. Around you is a dense impassible forest.");
+                switch (specdec)
+                {
+                    case "Door":
+                        Console.WriteLine("\nThe door seems to be locked");
+                        break;
+
+                    case "Jewel":
+                        Console.WriteLine("\nThe Jewel is somewhat loose");
+                        break;
+
+                    case "Lever":
+                        Console.WriteLine("\nThe level is anchient");
+                        break;
+
+                    case "look":
+                        Console.WriteLine("\nYou stand before the castle. To the North is a wooden door and a jewel. Around you is a dense impassible forest.");
+                        break;
+
+                    case "":
+                        Console.WriteLine("\nYou stand before the castle. To the North is a wooden door and a jewel. Around you is a dense impassible forest.");
+                        break;
+
+                    default:
+                        Console.WriteLine("\nI don't know what you\'re looking at.");
+                        break;
+                }
             }
             else if (kind == "move")
             {
@@ -83,7 +108,21 @@ namespace Joe_Quest
         {
             if (kind == "look")
             {
-                Console.WriteLine("\nYou stand inside the castle. There is an exit to the North and South");
+                switch (specdec)
+                {
+                    case "look":
+                        Console.WriteLine("\nYou stand inside the castle. There is an exit to the North and South");
+                        break;
+
+                    case "":
+                        Console.WriteLine("\nYou stand inside the castle. There is an exit to the North and South");
+                        break;
+
+                    default:
+                        Console.WriteLine("\nI don't know what you\'re looking at.");
+                        break;
+                }
+                
             }
             else if (kind == "move")
             {
@@ -117,7 +156,20 @@ namespace Joe_Quest
         {
             if (kind == "look")
             {
-                Console.WriteLine("\nYou stand inside a garden. There is an exit to the South");
+                switch (specdec)
+                {
+                    case "look":
+                        Console.WriteLine("\nYou stand inside a garden. There is an exit to the South");
+                        break;
+
+                    case "":
+                        Console.WriteLine("\nYou stand inside a garden. There is an exit to the South");
+                        break;
+
+                    default:
+                        Console.WriteLine("\nI don't know what you\'re looking at.");
+                        break;
+                }
             }
             else if (kind == "move")
             {
